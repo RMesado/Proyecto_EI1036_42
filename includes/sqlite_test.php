@@ -2,7 +2,7 @@
 
 /* pdo debe ser sqlite en desarrollo */
 
-$t_cliente  = 'clientes';
+$t_cliente  = 'clientes_portal';
 $t_producto = 'productos';
 $t_compra   = 'compras';
 
