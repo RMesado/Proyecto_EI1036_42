@@ -12,10 +12,14 @@
 			echo '<li><a href="?action=login">Autentificar</a></li>';
 			echo '<li><a href="?action=registrar_usuario">Registrarme</a></li>';
 		 }
-		elseif (isset($_SESSION['usuario']) and $_SESSION['usuario'] == 'admin')
+		elseif (isset($_SESSION['usuario']) and $_SESSION['usuario'] == 'admin'){
 			echo '<li><a href="?action=registrar_producto">Registrar Producto</a></li>';
-		elseif (isset($_SESSION['usuario']))
-		    echo '<li><"<a href="?action=ver_cesta">Cesta de Compra</a></li>';
+			echo '<li><a href="?action=logout">Cerrar sesión</a></li>';
+		}
+		elseif (isset($_SESSION['usuario'])){
+			echo '<li><a href="?action=ver_cesta">Cesta de Compra</a></li>';
+			echo '<li><a href="?action=logout">Cerrar sesión</a></li>';
+		}
         ?>
 	</ul>
 </nav>

@@ -45,7 +45,7 @@ switch ($action) {
         $central = "/partials/registro_usuario.php"; //formulario usuarios
         break;
     case "insertar_usuario":
-        $central = registrar_usuario("usuarios"); //tabla usuarios
+        $central = registrar_usuario("clientes_portal"); //tabla usuarios
         break;
     case "listar_productos":
         $central = table2html("productos"); //tabla productos
@@ -64,6 +64,10 @@ switch ($action) {
         break;
     case "realizar_compra":
         $central = "<p>Todavía no puedo añadir a la cesta</p>"; //cesta en $_SESSION["cesta"]
+        break;
+    case "logout":
+        $_SESSION["usuario"] = NULL;
+        $central="/partials/centro.php";
         break;
     default:
         $data["error"] = "Accion No permitida";
