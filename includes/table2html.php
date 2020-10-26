@@ -13,12 +13,14 @@ function table2html($table)
         foreach($rows[0] as $key => $value) {
             echo "<th>", $key,"</th>";
         }
+        print"<th> </th>";
         print "</thead>";
         foreach ($rows as $row) {
             print "<tr>";
             foreach ($row as $key => $val) {
                 echo "<td>", $val, "</td>";
             }
+            print"<td> <a href=\"./includes/cesta \" class=\"btn btn-success\"> Compra me</a> </td>";
             print "</tr>";
         }
         print "</table>";
