@@ -2,6 +2,8 @@
 
 function table2html($table)
 {
+    if (isset($_REQUEST['user'])) $user = $_REQUEST['user'];
+    else $user = "";
     global $pdo;
 
     $query = "SELECT * FROM  $table;";
@@ -20,7 +22,8 @@ function table2html($table)
             foreach ($row as $key => $val) {
                 echo "<td>", $val, "</td>";
             }
-            print"<td> <a href=\"./includes/cesta \" class=\"btn btn-success\"> Compra me</a> </td>";
+
+            echo"<td> <a href=\"?action=add&client_id=",$user,"&product=",$row["id"], "\" class=\"btn btn-success\"> Compra me</a> </td>";
             print "</tr>";
         }
         print "</table>";

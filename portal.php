@@ -29,7 +29,6 @@ include(dirname(__FILE__)."/includes/autentificar_usuario.php");
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
 
-$central = "Partials/centro.php";
 
 switch ($action) {
     case "home":
@@ -69,9 +68,13 @@ switch ($action) {
         $_SESSION["usuario"] = NULL;
         $central="/partials/centro.php";
         break;
+    case "add":
+        //añada cosas aquí como una funcion para la cesta to flamaaaaaaaaaaaaaaaaaaa
+        break;
     default:
         $data["error"] = "Accion No permitida";
         $central = "/partials/centro.php";
+
 }
 
 if ($central <> "") include(dirname(__FILE__).$central);
