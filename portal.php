@@ -25,6 +25,7 @@ include(dirname(__FILE__)."/includes/table2html.php");
 include(dirname(__FILE__)."/includes/registrar_usuario.php");
 include(dirname(__FILE__)."/includes/autentificar_usuario.php");
 
+include(dirname(__FILE__)."/includes/añadirCesta.php");
 
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
@@ -69,6 +70,7 @@ switch ($action) {
         $central="/partials/centro.php";
         break;
     case "add":
+        $central=añadirCesta();
         //añada cosas aquí como una funcion para la cesta to flamaaaaaaaaaaaaaaaaaaa
         break;
     default:
