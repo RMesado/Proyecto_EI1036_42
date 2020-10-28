@@ -1,5 +1,6 @@
 <?php
     function verCesta(){
+        global $pdo;
         if(!isset($_SESSION["cesta"])){
            
             $query = "SELECT * FROM  productos;";
@@ -14,14 +15,24 @@
                 print "</table>";
             }
         }else{
-            $query ="SELECT * FROM productos WHERE id like(?)";
-            $ids_productos=explode(",",$_SESSION["cesta"]);
             
-            foreach($ids_productos as $id_producto){
-                $producto=ejecutarSQL($query,$id_producto);
-                //poner bonitooo
-            }
+            print'<table><thead>';
+            foreach(explode(",",$_SESSION["cesta"]) as $id_producto){
+                $query ="SELECT * FROM productos WHERE id =".$id_producto.";";
+                $producto=$pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+                //atascado aqui no se porque los productos no los devuelve bien es raro
+                print"<br>";
+                print "<tr>";
+                if(is_array($producto)){
+                foreach($producto as $componente){
+                    echo "<td>", $componente, "</td>";
 
+                }
+                echo"<td> <a href=\"?action=delete&item_id=",$producto['id']," \" class=\"btn btn-success\"> Compra me</a> </td>";
+                }
+                print "</tr>";
+            }
+            print "</table>";
         }
 
         

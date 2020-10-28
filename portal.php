@@ -26,6 +26,9 @@ include(dirname(__FILE__)."/includes/registrar_usuario.php");
 include(dirname(__FILE__)."/includes/autentificar_usuario.php");
 
 include(dirname(__FILE__)."/includes/añadirCesta.php");
+include(dirname(__FILE__)."/includes/verCesta.php");
+
+
 
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
@@ -57,7 +60,7 @@ switch ($action) {
         $central = "<p>Todavía no puedo insertar productos en la BD</p>"; //tabla productos
         break;
     case "ver_cesta":
-        $central = "<p>Todavia no puedo ver la cesta</p>"; //cesta en $_SESSION["cesta"]
+        $central = verCesta(); //cesta en $_SESSION["cesta"]
         break;
     case "encestar":
         $central = "<p>Todavía no puedo añadir a la cesta</p>"; //tabla compras
@@ -71,7 +74,6 @@ switch ($action) {
         break;
     case "add":
         $central=añadirCesta();
-        //añada cosas aquí como una funcion para la cesta to flamaaaaaaaaaaaaaaaaaaa
         break;
     default:
         $data["error"] = "Accion No permitida";

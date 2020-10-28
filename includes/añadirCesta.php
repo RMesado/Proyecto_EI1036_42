@@ -1,4 +1,5 @@
 <?php
+
 function añadirCesta(){
     
     if(!isset($_SESSION["cesta"])){
@@ -11,6 +12,7 @@ function añadirCesta(){
         $_SESSION["cesta"]=$productos;
         echo $_SESSION["cesta"];
     }
+    verCesta();
 
 }
 
