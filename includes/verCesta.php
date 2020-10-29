@@ -18,17 +18,19 @@
             
             print'<table><thead>';
             foreach(explode(",",$_SESSION["cesta"]) as $id_producto){
-                $query ="SELECT * FROM productos WHERE id =".$id_producto.";";
-                $producto=$pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
-                //atascado aqui no se porque los productos no los devuelve bien es raro
-                print"<br>";
+                 
+                $query="SELECT * FROM productos WHERE id = ".$id_producto." ;";
+                $pr= $pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+                $producto=$pr[0];
+
                 print "<tr>";
                 if(is_array($producto)){
                 foreach($producto as $componente){
+                    
                     echo "<td>", $componente, "</td>";
-
+                    
                 }
-                echo"<td> <a href=\"?action=delete&item_id=",$producto['id']," \" class=\"btn btn-success\"> Compra me</a> </td>";
+                echo"<td> <a href=\"?action=delete&item_id=",$producto['id']," \" class=\"btn btn-success\"> Borrar </a> </td>";
                 }
                 print "</tr>";
             }
