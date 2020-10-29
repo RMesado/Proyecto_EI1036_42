@@ -27,6 +27,7 @@ include(dirname(__FILE__)."/includes/autentificar_usuario.php");
 
 include(dirname(__FILE__)."/includes/añadirCesta.php");
 include(dirname(__FILE__)."/includes/verCesta.php");
+include(dirname(__FILE__)."/includes/eliminarDeCesta.php");
 
 
 
@@ -74,6 +75,9 @@ switch ($action) {
         break;
     case "add":
         $central=añadirCesta();
+        break;
+    case "delete":
+        $central=eliminarDeCesta();
         break;
     default:
         $data["error"] = "Accion No permitida";

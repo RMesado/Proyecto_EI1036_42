@@ -8,7 +8,9 @@
             if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
                 print '<table><thead>';
                 foreach($rows[0] as $key => $value) {
-                    echo "<th>", $key,"</th>";
+                    if($key!="id"){
+                        echo "<th>", $key,"</th>";
+                    }
                 }
                 print"<th> </th>";
                 print "</thead>";
@@ -27,8 +29,8 @@
                 if(is_array($producto)){
                 foreach($producto as $componente){
                     if($producto["id"]!=$componente){
-                    echo "<td>", $componente, "</td>";
-                }                    
+                        echo "<td>", $componente, "</td>";
+                    }                    
                 }
                 echo"<td> <a href=\"?action=delete&item_id=",$producto["id"]," \" class=\"btn btn-success\"> Borrar </a> </td>";
                 }
