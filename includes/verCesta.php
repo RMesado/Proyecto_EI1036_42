@@ -26,11 +26,11 @@
                 print "<tr>";
                 if(is_array($producto)){
                 foreach($producto as $componente){
-                    
+                    if($producto["id"]!=$componente){
                     echo "<td>", $componente, "</td>";
-                    
+                }                    
                 }
-                echo"<td> <a href=\"?action=delete&item_id=",$producto['id']," \" class=\"btn btn-success\"> Borrar </a> </td>";
+                echo"<td> <a href=\"?action=delete&item_id=",$producto["id"]," \" class=\"btn btn-success\"> Borrar </a> </td>";
                 }
                 print "</tr>";
             }

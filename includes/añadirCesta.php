@@ -10,7 +10,6 @@ function añadirCesta(){
         $producto=$_REQUEST['product'];
         $productos=$productos.",".$producto;
         $_SESSION["cesta"]=$productos;
-        echo $_SESSION["cesta"];
     }
     verCesta();
 
