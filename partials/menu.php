@@ -6,9 +6,6 @@
 		<li>
 			<a href="?action=listar_productos">Productos</a>
 		</li>
-		<li>
-			<a href="?action=ver_cesta">Cesta</a>
-		</li>
 		<?php 
 		
 		 if (!isset($_SESSION['usuario'])){
