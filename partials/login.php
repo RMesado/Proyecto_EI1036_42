@@ -3,10 +3,6 @@
 	<form class="form_usuario" action="./portal.php?action=do_login" method="POST">
 		<fieldset>
 			<legend>Datos básicos</legend>
-			<label for="username">Usuario</label>
-			<br/>
-			<input type="text" name="username" class="item_requerid" size="20" maxlength="25"/>
-			<br/>
 			<label for="email">Email</label>
 			<br/>
 			<input type="text" name="email" class="item_requerid" size="20" maxlength="25"/>

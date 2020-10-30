@@ -6,13 +6,24 @@
     "configurations": [
         
     {
-        "name": "Xdebug for Docker",
+        "name": "Listen for XDebug",
         "type": "php",
         "request": "launch",
         "port": 9000,
+        "runtimeExecutable": "C:\\Program Files (x86)\\php7.4.10php.exe",
+        "log": true,
         "pathMappings": {
             "dockerPath": "${workspaceFolder}"
         }
-    }
+    },
+        {
+            "name": "Launch currently open script",
+            "type": "php",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "port": 9000,
+            "runtimeExecutable": "C:\\Program Files (x86)\\php7.4.10php.exe"
+        }
     ]
 }
