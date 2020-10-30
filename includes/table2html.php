@@ -31,8 +31,8 @@ function table2html($table)
                     echo "<td>", $val, "</td>";
                 }
         }
-
-            echo"<td> <a href=\"?action=add&client_id=",$id_user,"&product=",$row["id"], "\" class=\"btn btn-success\"> Compra me</a> </td>";
+            $_SESSION["id_usuario"]=$id_user;
+            echo"<td> <a href=\"?action=add&client_id=",$id_user,"&product=",$row["id"], "\" class=\"btn btn-success\"> Añadir a la cesta</a> </td>";
             print "</tr>";
         }
         
