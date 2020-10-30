@@ -4,7 +4,7 @@
 /**
  * * Descripción: Ejemplo de proyecto
  * *
- * * 
+ * *
  * *
  * * @author  Rafael Berlanga
  * * @copyright 2020 Rafa B.
@@ -28,19 +28,23 @@ include(dirname(__FILE__)."/includes/autentificar_usuario.php");
 include(dirname(__FILE__)."/includes/añadirCesta.php");
 include(dirname(__FILE__)."/includes/verCesta.php");
 include(dirname(__FILE__)."/includes/eliminarDeCesta.php");
+include(dirname(__FILE__)."/includes/realizarCompra.php");
 
 
 
-if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
-else $action = "home";
+if (isset($_REQUEST['action'])) {
+    $action = $_REQUEST["action"];
+} else {
+    $action = "home";
+}
 
 
 switch ($action) {
     case "home":
         $central = "/partials/centro.php";
         break;
-    case "login": 
-        $central = "/partials/login.php"; //formulario login 
+    case "login":
+        $central = "/partials/login.php"; //formulario login
         break;
     case "do_login":
         $central = autentificar_usuario(); //fijar $_SESSION["usuario"]
@@ -67,10 +71,16 @@ switch ($action) {
         $central = "<p>Todavía no puedo añadir a la cesta</p>"; //tabla compras
         break;
     case "realizar_compra":
-        $central = "<p>Todavía no puedo añadir a la cesta</p>"; //cesta en $_SESSION["cesta"]
+        if ($_SESSION["id_usuario"]=="") {
+            $central = "/partials/login.php";
+        } else {
+            $central = realizarCompra();
+        } //cesta en $_SESSION["cesta"]
         break;
     case "logout":
-        $_SESSION["usuario"] = NULL;
+        $_SESSION["usuario"] = null;
+        $_SESSION["id_usuario"] = "";
+        $_SESSION["cesta"] = null;
         $central="/partials/centro.php";
         break;
     case "add":
@@ -85,7 +95,8 @@ switch ($action) {
 
 }
 
-if ($central <> "") include(dirname(__FILE__).$central);
+if ($central <> "") {
+    include(dirname(__FILE__).$central);
+}
 
 include(dirname(__FILE__)."/partials/footer.php");
-?>
