@@ -127,3 +127,7 @@ section#blog {
     margin-top: 0px;
     text-align: right;
 }
+
+.popup{
+    visibility: hidden;
+}

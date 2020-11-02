@@ -1,9 +1,9 @@
-function popup(e){
-    document.getElementById("69").style.display="auto";
+function popup(){
+    document.getElementById("69").style.visibility="visible";
 
 }
 
-function fuctionhide(e){
-    document.getElementById("x").style.display="none";
+function fuctionhide(){
+    document.getElementById("69").style.visibility="hidden";
 
 }

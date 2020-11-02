@@ -29,6 +29,7 @@ include(dirname(__FILE__)."/includes/añadirCesta.php");
 include(dirname(__FILE__)."/includes/verCesta.php");
 include(dirname(__FILE__)."/includes/eliminarDeCesta.php");
 include(dirname(__FILE__)."/includes/realizarCompra.php");
+include(dirname(__FILE__)."/partials/ventanita.php");
 
 
 
@@ -59,7 +60,7 @@ switch ($action) {
         $central = table2html("productos"); //tabla productos
         break;
     case "registrar_producto":
-        $central = "<p>Todavia no puedo registrar productos</p>"; //formulario producto
+        $central = "/partials/registro_producto.php"; //formulario producto
         break;
     case "insertar_producto":
         $central = "<p>Todavía no puedo insertar productos en la BD</p>"; //tabla productos
