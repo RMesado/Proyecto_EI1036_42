@@ -12,7 +12,7 @@
     <br\>
     <label for="url_img">Imagen</label>
     <br\>
-    <input type="text" name="url_img" class="item_requerid" size="256" maxlength="256" value="">
+    <input type="button" id=68 onclick="popup()"> Añadir Imagen
     <br\>
     <label for="precio">Precio</label>
     <br\>

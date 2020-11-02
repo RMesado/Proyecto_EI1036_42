@@ -89,6 +89,9 @@ switch ($action) {
     case "delete":
         $central=eliminarDeCesta();
         break;
+    case "upload":
+        $central = subirImagen();
+        break;
     default:
         $data["error"] = "Accion No permitida";
         $central = "/partials/centro.php";
