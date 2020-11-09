@@ -15,6 +15,8 @@
 	<title>Bienvenido a la web de MI TIENDA</title>
 	<META name="Author" content="AlumnoXXX">
 	<link rel="stylesheet" href="./css/estilo.css" type="text/css">
+	<script src="js/ventana.js"></script>
+	<script src="js/pop.js"></script>
 	
 
 </head>

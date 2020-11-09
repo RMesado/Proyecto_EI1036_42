@@ -1,4 +1,3 @@
-<script src="js/pop.js"></script>
 <main>
     <h1>Gestión de productos</h1>
     <form class="fom_producto" action="?action=registrar_producto" method="POST">
