@@ -132,8 +132,8 @@ section#blog {
     visibility: hidden;
     background:gray;      
     position: absolute;      
-    width:  100px;      
-    height: 300px;      
-    bottom: 10px;      
-    right:  10px; 
+    width:  30vw;      
+    height: 20vh;      
+    bottom: 50vh;      
+    right:  30vw; 
 }
