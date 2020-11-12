@@ -1,6 +1,7 @@
 <main>
     <h1>Gestión de productos</h1>
     <form class="fom_producto" action="?action=registrar_producto" method="POST">
+    <fieldset>
     <legend>Producto</legend>
     <label for="producto">Nombre</label>
     <br\>
@@ -10,17 +11,17 @@
     <br\>
     <input type="text" name="descripcion" class="item_requerid" size="256" maxlengt="512" value="">
     <br\>
-    <label for="url_img"></label>
-    <br\>
     <label for="precio">Precio</label>
     <br\>
-    <input type="text" name="precio" class ="item_requerid" size="256" maxlengt="512" value="">
+    <input type="text" name="precio" class="item_requerid" size="10" value="">
     <br\>
     <input type="button" value="Añadir Imagen" id=68 onclick=popup()>
     <br\>
+    </fieldset>
+    <br>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Deshacer">
+    </br>
     </form>
-    <p><input type="submit" value="Enviar">
-	<input type="reset" value="Deshacer">
-	</p>
     </form>
 </main>
