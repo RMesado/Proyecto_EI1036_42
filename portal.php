@@ -29,8 +29,9 @@ include(dirname(__FILE__)."/includes/añadirCesta.php");
 include(dirname(__FILE__)."/includes/verCesta.php");
 include(dirname(__FILE__)."/includes/eliminarDeCesta.php");
 include(dirname(__FILE__)."/includes/realizarCompra.php");
-include(dirname(__FILE__)."/partials/ventanita.php");
 
+include(dirname(__FILE__)."/partials/ventanita.php");
+include(dirname(__FILE__)."/includes/phpToJs.php");
 
 
 if (isset($_REQUEST['action'])) {
