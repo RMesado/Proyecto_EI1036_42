@@ -5,23 +5,22 @@
     <legend>Producto</legend>
     <label for="producto">Nombre</label>
     <br\>
-    <input type="text" name="producto" class="item_requerid" size="20" maxlength="25" value="">
+    <input id="producto" type="text" name="producto" class="item_requerid" size="20" maxlength="25" value="">
     <br\>
     <label for="descripcion">Descripción del producto</label>
     <br\>
-    <input type="text" name="descripcion" class="item_requerid" size="256" maxlengt="512" value="">
+    <input id="descripcion" type="text" name="descripcion" class="item_requerid" size="256" maxlengt="512" value="">
     <br\>
     <label for="precio">Precio</label>
     <br\>
-    <input type="text" name="precio" class="item_requerid" size="10" value="">
+    <input id="precio" type="text" name="precio" class="item_requerid" size="10" value="">
     <br\>
-    <input type="button" value="Añadir Imagen" id=68 onclick=popup()>
+    <input type="button" value="Añadir Imagen" id=68 onclick="popup(); guardarDatos();">
     <br\>
     </fieldset>
     <br>
     <input type="submit" value="Enviar">
     <input type="reset" value="Deshacer">
     </br>
-    </form>
     </form>
 </main>

@@ -44,7 +44,7 @@ function autentificar_usuario()
     if(is_null($_SESSION["usuario"]))
         print "<h1> Usuario no registrado </h1>"; 
     else {
-        $id_usuario = $_SESSION["id_usuario"];
+
         print "<h1> Bienvenido $nombre</h1>";
     }
     }

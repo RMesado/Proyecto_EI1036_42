@@ -1,3 +1,4 @@
+
 function popup(){
     document.getElementById("ventanita").style.visibility="visible";
 
@@ -8,6 +9,32 @@ function fuctionhide(){
 
 }
 
+
+//guardar y cargar cosas del fromulario de productos
+function guardarDatos(){
+  var inputName = document.getElementById("producto");
+  var inputDesc = document.getElementById("descripcion");
+  var inputPrec = document.getElementById("precio");
+  localStorage.setItem("nombre", inputName.value);
+  localStorage.setItem("descrip", inputDesc.value);
+  localStorage.setItem("precio", inputPrec.value);
+}
+
+function guardarDatoFile(){
+  var inputFile = document.getElementById("update");
+  localStorage.setItem("foto", inputFile.value);
+}
+
+window.onload = function recuperarDatos(){
+  var inputName = localStorage.getItem("nombre");
+  var inputDesc = localStorage.getItem("descrip");
+  var inputPrec = localStorage.getItem("precio");
+
+  document.getElementById("producto").value = inputName;
+  document.getElementById("descripcion").value = inputDesc;
+  document.getElementById("precio").value = inputPrec;
+
+}
 
 
 

@@ -8,6 +8,6 @@
         <canvas id="canvas"></canvas>
         <br/>
 
-        <input type="submit" value="SUBIR" name="submit">
+        <input type="submit" value="SUBIR" name="submit" onclick=guardarDatoFile()>
         </form>
 </div>
