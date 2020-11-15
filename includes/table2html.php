@@ -2,13 +2,6 @@
 
 function table2html($table)
 {
-    if (isset( $_SESSION["usuario"])) {
-
-        $query = " SELECT client_id FROM  clientes_portal where username like(?);";
-        $id_user = ejecutarSQL($query,explode(',',$_SESSION["usuario"] ));
-    }
-    else $id_user = "";
-    
     global $pdo;
 
     $query = "SELECT * FROM  $table;";
@@ -31,7 +24,6 @@ function table2html($table)
                     echo "<td>", $val, "</td>";
                 }
         }
-            $_SESSION["id_usuario"]=$id_user;
             echo"<td> <a href=\"?action=add&client_id=",$id_user,"&product=",$row["id"], "\" class=\"btn btn-success\"> Añadir a la cesta</a> </td>";
             print "</tr>";
         }

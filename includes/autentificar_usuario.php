@@ -26,14 +26,15 @@ function autentificar_usuario()
                 if($usuario[4] == "1"){
                     $_SESSION["usuario"] = "admin";
                     $nombre = $usuario[1];
+                    $id_usuario = $usuario[0];
                     break;
                  }
                 else {
                     $_SESSION["usuario"] = "normal";
                     $nombre = $usuario[1];
+                    $_SESSION["id_usuario"] = $usuario[0];
                     break;
-                }
-                
+                }          
             //print_r($lista);
             //print_r($key);
             //print_r($value);
@@ -43,7 +44,8 @@ function autentificar_usuario()
     if(is_null($_SESSION["usuario"]))
         print "<h1> Usuario no registrado </h1>"; 
     else {
-        print "<h1> Bienvenido $nombre </h1>";
+        $id_usuario = $_SESSION["id_usuario"];
+        print "<h1> Bienvenido $nombre</h1>";
     }
     }
 
