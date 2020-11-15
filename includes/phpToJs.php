@@ -1,20 +1,20 @@
 <?php
-    function subirImagen(){//esto tiene que recoger la puta imagen guay a que si
+    function subirImagen(){//ya recoge la imagen
         $target_dir = "img/";
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $target_file = $target_dir.basename($_FILES["url_img"]["name"]);
         $uploadOk = 1;
-        echo $target_file;
         if(isset($_POST["submit"])) {
 
         }
         if (file_exists($target_file)) {
-            echo "Sorry, file already exists.";
+            echo "Archivo existente";
         $uploadOk = 0;
         } 
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+        if (move_uploaded_file($_FILES["url_img"]["tmp_name"], $target_file)) {
+        echo "El archivo ". htmlspecialchars( basename( $_FILES["url_img"]["name"])). " ha sido subio.";
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            echo "Se produjo un error al subir el el archio";
         }
+
     }
 ?>
