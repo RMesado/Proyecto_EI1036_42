@@ -9,6 +9,11 @@
 		<p class="der"> Visit us at:12006 UJI </p>
 	</address>
 </footer>
+
+<script>
+	let divCaja=document.getElementById("caro_movil");
+   divCaja.onmousedown=function(){startDrag();}
+</script>
 </body>
 
 </html>

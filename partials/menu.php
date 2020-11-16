@@ -20,6 +20,7 @@
 			echo '<li><a href="?action=ver_cesta">Cesta de Compra</a></li>';
 			echo '<li><a href="?action=logout">Cerrar sesión</a></li>';
 		}
-        ?>
+		?>
+		<button id='cesta'onclick=cesta_ver()>CESTA</button>
 	</ul>
 </nav>

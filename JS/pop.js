@@ -44,10 +44,6 @@ window.onload = function recuperarDatos(){
 
 
 //cosas para hacer flotante el carro de manolo
-let divCaja=document.getElementById("caro_movil");
-divCaja.onmousedown=function(){startDrag();}
-
-
 function startDrag(){
   document.onmouseup=finishDrag
   document.onmousemove=moveElement
@@ -62,6 +58,9 @@ function finishDrag(e){
   
 }
 
+
+
+
 (function(){
     let lista = JSON.parse(localStorage.getItem('cesta'))
     if(lista && lista.length>0)
@@ -74,8 +73,9 @@ function anyadir(tarea){
   let span = document.createElement('span')
   span.classList.add('data-tarea') // añadimos una nueva clase al atributo 'class'
 
-  if (tarea) 
-     span.textContent = tarea
+  if (tarea) {
+     span.textContent = tarea[1]
+     span.id=tarea[0]}
   else /*si el contenido es vacio return */
      span.textContent = document.getElementById('tarea').value
   
@@ -99,4 +99,20 @@ function guardar(){
   //hay que conseguir que no guarde el contenido del boton
   lista = Array.from(lista).map(n => n.textContent)
   localStorage.setItem('cesta', JSON.stringify(lista))
+}
+
+
+function cesta(){
+  let producto= this.id.split("_")
+  anyadir(producto)
+
+}
+function cesta_ver(){
+  document.getElementById("caro_movil").style.visibility="visible";
+
+}
+
+function ocultar_cesta(){
+  document.getElementById("caro_movil").style.visibility="hidden";
+
 }

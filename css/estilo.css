@@ -180,3 +180,12 @@ input[type=text], textarea {
     padding-right: 2px;
     border: none;
   }
+  .widget {     
+    visibility: hidden; 
+    background: gray;      
+    position: absolute;     
+    width:  100px;     
+    height: 300px;     
+    bottom: 10px;     
+    right:  10px;    
+}
