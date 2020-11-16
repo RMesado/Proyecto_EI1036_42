@@ -29,10 +29,14 @@ window.onload = function recuperarDatos(){
   var inputName = localStorage.getItem("nombre");
   var inputDesc = localStorage.getItem("descrip");
   var inputPrec = localStorage.getItem("precio");
+  var inputFile = localStorage.getItem("foto");
+  let arrayFoto= inputFile.split("\\");
+  var nombreFoto = arrayFoto[2];
 
   document.getElementById("producto").value = inputName;
   document.getElementById("descripcion").value = inputDesc;
   document.getElementById("precio").value = inputPrec;
+  document.getElementById("foto").value = "img\\"+nombreFoto;
 
 }
 

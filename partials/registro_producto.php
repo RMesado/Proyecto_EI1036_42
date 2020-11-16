@@ -16,6 +16,7 @@
     <input id="precio" type="text" name="precio" class="item_requerid" size="10" value="">
     <br\>
     <input type="button" value="Añadir Imagen" id=68 onclick="popup(); guardarDatos();">
+    <input id="foto" type="text"  name="url_img" readonly>
     <br\>
     </fieldset>
     <br>

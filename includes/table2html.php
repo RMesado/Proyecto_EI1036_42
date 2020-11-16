@@ -24,7 +24,7 @@ function table2html($table)
                     echo "<td>", $val, "</td>";
                 }
         }
-            echo"<td> <a href=\"?action=add&client_id=",$id_user,"&product=",$row["id"], "\" class=\"btn btn-success\"> Añadir a la cesta</a> </td>";
+            echo"<td> <a href=\"?action=add&client_id=",$_SESSION["id_user"],"&product=",$row["id"], "\" class=\"btn btn-success\"> Añadir a la cesta</a> </td>";
             print "</tr>";
         }
         
