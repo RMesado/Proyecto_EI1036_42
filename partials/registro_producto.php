@@ -1,6 +1,6 @@
 <main>
     <h1>Gestión de productos</h1>
-    <form class="fom_producto" action="?action=registrar_producto" method="POST">
+    <form class="fom_producto" action="?action=insertar_producto" method="POST">
     <fieldset>
     <legend>Producto</legend>
     <label for="producto">Nombre</label>

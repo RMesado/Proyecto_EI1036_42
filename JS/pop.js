@@ -36,7 +36,7 @@ window.onload = function recuperarDatos(){
   document.getElementById("producto").value = inputName;
   document.getElementById("descripcion").value = inputDesc;
   document.getElementById("precio").value = inputPrec;
-  document.getElementById("foto").value = "img\\"+nombreFoto;
+  document.getElementById("foto").value = "./img/"+nombreFoto;
 
 }
 
