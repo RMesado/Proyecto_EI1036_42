@@ -24,7 +24,8 @@ function table2html($table)
                     echo "<td>", $val, "</td>";
                 }
         }
-            echo"<td> <a href=\"?action=add&client_id=",$_SESSION["id_user"],"&product=",$row["id"], "\" class=\"btn btn-success\"> Añadir a la cesta</a> </td>";
+            $coso=$row["id"]."_".$row["name"];
+            echo"<td> <button id='".$coso."'onclick=cesta()>comprar</button> </td>";
             print "</tr>";
         }
         
