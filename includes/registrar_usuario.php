@@ -17,8 +17,10 @@ function registrar_usuario($table)
 
         if (1>$a) echo "<h1> Inserción incorrecta </h1>";
         else {
-            echo "<h1> Usuario registrado! </h1>";
+            //echo "<h1> Usuario registrado! </h1>";
             $_SESSION["usuario"] = "normal";
+            header("Location: http://localhost:3000/portal.php?action=home");
+            exit();
         }
     
     } catch (PDOExeption $e) {

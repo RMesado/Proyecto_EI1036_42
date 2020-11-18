@@ -85,6 +85,8 @@ switch ($action) {
         $_SESSION["id_usuario"] = "";
         $_SESSION["cesta"] = null;
         $central="/partials/centro.php";
+        header("Location: http://localhost:3000/portal.php?action=home");
+        exit();
         break;
     case "add":
         $central=añadirCesta();
