@@ -98,13 +98,19 @@ function anyadir2(tarea){
     var producto=tarea.split(',')
     for( var i=0 ; i<producto.length;i++){
       let celda=document.createElement('th')
-      var text=document.createTextNode(producto[i])
+      
       if (i==0){
         celda.classList.add("id");
       }
-      celda.appendChild(text)
+      if (i==2){
+        var variable=document.createElement("IMG")
+        variable.setAttribute('src',producto[i])
+      }else{
+        var variable=document.createTextNode(producto[i])
+      }
+      celda.appendChild(variable)
       nodo2.appendChild(celda)
-    }
+  }
      span.textContent = tarea
   }else /*si el contenido es vacio return */
      span.textContent = document.getElementById('tarea').value
