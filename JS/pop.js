@@ -140,14 +140,14 @@ function cesta(id){
 
 }
 function cesta_ver(){
-  document.getElementById("caro_movil").style.visibility="visible";
-
+  var ver=document.getElementById("caro_movil")
+  if (ver.style.visibility=='visible'){
+    ver.style.visibility="hidden"
+  }else{
+    ver.style.visibility="visible"
+  }
 }
 
-function ocultar_cesta(){
-  document.getElementById("caro_movil").style.visibility="hidden";
-
-}
 
 
 // Validacion datos registro de usuario

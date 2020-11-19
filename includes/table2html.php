@@ -24,7 +24,7 @@ function table2html($table)
                     echo "<td>", $val, "</td>";
                 }
         }
-            $coso=$row["id"].",".$row["name"];
+            $coso=$row["id"].",".$row["name"].",".$row["imagen"].",".$row["precio"];
             echo"<td> <button id=$coso onclick=cesta(this.id)>comprar</button> </td>";
             print "</tr>";
         }
