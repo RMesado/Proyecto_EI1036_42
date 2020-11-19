@@ -101,6 +101,7 @@ function anyadir2(tarea){
       
       if (i==0){
         celda.classList.add("id");
+        celda.setAttribute('value',producto[i])
       }
       if (i==2){
         var variable=document.createElement("IMG")
@@ -247,4 +248,18 @@ function validacionEmail(){
     }
 
     return flag;
+  }
+
+  //rellenar el formulario falso
+
+  function rellenar(){
+    var ids=document.getElementsByClassName("id")
+    var listas=[]
+    for(i=0;i<ids.length;i++){
+      var valor=ids[i].getAttribute('value')
+      listas=listas.concat(valor)
+    }
+    
+    document.getElementById('nover').setAttribute('value',listas)
+
   }
