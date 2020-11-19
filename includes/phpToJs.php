@@ -11,7 +11,9 @@
         $uploadOk = 0;
         } 
         if (move_uploaded_file($_FILES["url_img"]["tmp_name"], $target_file)) {
-        echo "El archivo ". htmlspecialchars( basename( $_FILES["url_img"]["name"])). " ha sido subio.";
+            header("Location: http://localhost:3000/portal.php?action=registrar_producto");
+        exit();
+        //echo "El archivo ". htmlspecialchars( basename( $_FILES["url_img"]["name"])). " ha sido subio.";
         } else {
             echo "Se produjo un error al subir el el archio";
         }
