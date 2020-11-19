@@ -70,8 +70,8 @@ switch ($action) {
     case "ver_cesta":
         $central = verCesta(); //cesta en $_SESSION["cesta"]
         break;
-    case "encestar":
-        $central = "<p>Todavía no puedo añadir a la cesta</p>"; //tabla compras
+    case "comprar":
+        $central = realizarCompra("compras"); //tabla compras
         break;
     case "realizar_compra":
         if ($_SESSION["id_usuario"]=="") {
