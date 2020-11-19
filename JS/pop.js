@@ -69,18 +69,14 @@ function finishDrag(e){
 
 function anyadir(tarea){
   let nodo = document.createElement('li')
-  
   let span = document.createElement('span')
   span.classList.add('data-tarea') // añadimos una nueva clase al atributo 'class'
 
-  if (tarea) {
-     span.textContent = tarea[1]
-     span.id=tarea[0]}
+  if (tarea) 
+     span.textContent = tarea
   else /*si el contenido es vacio return */
      span.textContent = document.getElementById('tarea').value
-  
   nodo.appendChild(span)
-
   let boton = document.createElement('button')
   boton.textContent = 'Hecho'
   nodo.appendChild(boton)
@@ -88,8 +84,45 @@ function anyadir(tarea){
   boton.classList.add('boton')
 
   document.getElementById('list').appendChild(nodo)
+
 }
 
+function anyadir2(tarea){
+  
+  let nodo2=document.createElement("tr")
+  
+  let span = document.createElement('span')
+  span.classList.add('data-tarea') // añadimos una nueva clase al atributo 'class'
+
+  if (tarea){ 
+    var producto=tarea.split(',')
+    for( var i=0 ; i<producto.length;i++){
+      let celda=document.createElement('th')
+      var text=document.createTextNode(producto[i])
+      if (i==0){
+        celda.classList.add("id");
+      }
+      celda.appendChild(text)
+      nodo2.appendChild(celda)
+    }
+     span.textContent = tarea
+  }else /*si el contenido es vacio return */
+     span.textContent = document.getElementById('tarea').value
+
+  //nodo2.appendChild(span)
+  let boton = document.createElement('button')
+  boton.textContent = 'Hecho'
+  let celda=document.createElement('th')
+  celda.appendChild(boton)
+  nodo2.appendChild(celda)
+  boton.onclick = eliminar2
+  boton.classList.add('boton')
+
+  document.getElementById('tabla').appendChild(nodo2)
+}
+function eliminar2(){
+  this.parentNode.parentNode.remove()
+}
 function eliminar(){
   this.parentNode.remove()
 }
@@ -102,9 +135,8 @@ function guardar(){
 }
 
 
-function cesta(){
-  let producto= this.id.split("_")
-  anyadir(producto)
+function cesta(id){
+  anyadir2(id)
 
 }
 function cesta_ver(){
