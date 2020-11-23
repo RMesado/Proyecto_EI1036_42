@@ -4,7 +4,7 @@
 <section class="lista">
   <ul id="list">
   </ul>
-  <table class="tabla"id=tabla>
+  <table class="tabla_cestita" id=tabla>
 
   </table>
 </section>

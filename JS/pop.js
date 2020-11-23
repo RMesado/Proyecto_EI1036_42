@@ -89,6 +89,8 @@ function anyadir2(tarea){
       if (i==2){
         var variable=document.createElement("IMG")
         variable.setAttribute('src',producto[i])
+        variable.classList.add("imgs")
+    
       }else{
         var variable=document.createTextNode(producto[i])
       }

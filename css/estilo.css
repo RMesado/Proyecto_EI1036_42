@@ -16,6 +16,8 @@ body {
     /* Centrado */
 }
 
+
+
 header {
     min-height: 100px;
     margin-bottom: 5px 5px 5px 5px;
@@ -188,4 +190,9 @@ input[type=text], textarea {
     height: 300px;     
     bottom: 10px;     
     right:  10px;    
+}
+.imgs{
+    width:  25px;     
+    height: 25px;  
+
 }
