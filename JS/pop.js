@@ -69,25 +69,6 @@ function finishDrag(e){
       lista.forEach(tarea => anyadir(tarea))
 })()
 
-function anyadir(tarea){
-  let nodo = document.createElement('li')
-  let span = document.createElement('span')
-  span.classList.add('data-tarea') // añadimos una nueva clase al atributo 'class'
-
-  if (tarea) 
-     span.textContent = tarea
-  else /*si el contenido es vacio return */
-     span.textContent = document.getElementById('tarea').value
-  nodo.appendChild(span)
-  let boton = document.createElement('button')
-  boton.textContent = 'Hecho'
-  nodo.appendChild(boton)
-  boton.onclick = eliminar
-  boton.classList.add('boton')
-
-  document.getElementById('list').appendChild(nodo)
-
-}
 
 function anyadir2(tarea){
   
@@ -120,7 +101,7 @@ function anyadir2(tarea){
 
   //nodo2.appendChild(span)
   let boton = document.createElement('button')
-  boton.textContent = 'Hecho'
+  boton.textContent = 'Borrar'
   let celda=document.createElement('th')
   celda.appendChild(boton)
   nodo2.appendChild(celda)
@@ -132,9 +113,6 @@ function anyadir2(tarea){
 function eliminar2(){
   this.parentNode.parentNode.remove()
 }
-function eliminar(){
-  this.parentNode.remove()
-}
 
 function guardar(){
   let lista = document.querySelectorAll('.data-tarea')
@@ -142,7 +120,6 @@ function guardar(){
   lista = Array.from(lista).map(n => n.textContent)
   localStorage.setItem('cesta', JSON.stringify(lista))
 }
-
 
 function cesta(id){
   anyadir2(id)

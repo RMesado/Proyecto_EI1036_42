@@ -9,11 +9,7 @@
   </table>
 </section>
 
-<center>
-   <button onclick="rellenar()">Guardar</button>
-</center>
 <input type="text" id="nover" hidden name="productos" >
 <input type="submit" value="Enviar" onclick="rellenar()" >
-<input type="reset" value="Deshacer" onclick="rellenar()">
 </form>
 </div>
