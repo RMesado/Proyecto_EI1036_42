@@ -21,8 +21,10 @@ function guardarDatos(){
 }
 
 function guardarDatoFile(){
-  var inputFile = document.getElementById("update");
-  localStorage.setItem("foto", inputFile.value);
+  if (Math.round((document.getElementById("update").files.item(0).size / 1024))<=2048){
+    var inputFile = document.getElementById("update");
+    localStorage.setItem("foto", inputFile.value);
+  }
 }
 
 window.onload = function recuperarDatos(){
@@ -262,4 +264,17 @@ function validacionEmail(){
     
     document.getElementById('nover').setAttribute('value',listas)
 
+  }
+
+  // Validación de la imagen
+  function validarImagen(e) {
+
+    if (Math.round((document.getElementById("update").files.item(0).size / 1024))<=2048) {
+      alert("Añadida imagen con éxito");
+      return true;
+    } else {
+      e.preventDefault();
+      alert("La imagen pesa más de 2 Mb")
+      return false;
+    }
   }

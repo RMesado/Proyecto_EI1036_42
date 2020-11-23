@@ -26,12 +26,14 @@ function autentificar_usuario()
                 if($usuario[4] == "1"){
                     $_SESSION["usuario"] = "admin";
                     $nombre = $usuario[1];
+                    $_SESSION["nombre_usuario"] = $usuario[1];
                     $id_usuario = $usuario[0];
                     break;
                  }
                 else {
                     $_SESSION["usuario"] = "normal";
                     $nombre = $usuario[1];
+                    $_SESSION["nombre_usuario"] = $usuario[1];
                     $_SESSION["id_usuario"] = $usuario[0];
                     break;
                 }          
@@ -44,8 +46,11 @@ function autentificar_usuario()
     if(is_null($_SESSION["usuario"]))
         print "<h1> Usuario no registrado </h1>"; 
     else {
-
-        print "<h1> Bienvenido $nombre</h1>";
+        //$message = "Bienvenido $nombre";
+        //echo '<script>alert("Bienvenido'.$nombre.'")</script>';
+        header("Location: http://localhost:3000/portal.php?action=home");
+        exit();
+        //print "<h1> Bienvenido $nombre</h1>";
     }
     }
 

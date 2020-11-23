@@ -14,13 +14,13 @@
 		 }
 		elseif (isset($_SESSION['usuario']) and $_SESSION['usuario'] == 'admin'){
 			echo '<li><a href="?action=registrar_producto">Registrar Producto</a></li>';
-			echo '<li><a href="?action=logout">Cerrar sesión</a></li>';
+			echo '<li><a href="?action=logout">Cerrar sesión ('.$_SESSION["nombre_usuario"].' )</a></li>';
 		}
 		elseif (isset($_SESSION['usuario'])){
-			echo '<li><a href="?action=ver_cesta">Cesta de Compra</a></li>';
-			echo '<li><a href="?action=logout">Cerrar sesión</a></li>';
+			//echo '<li><a href="?action=ver_cesta">Cesta de Compra</a></li>';
+			echo '<li><button id=\'cesta\'onclick=cesta_ver()>CESTA</button></li>';
+			echo '<li><a href="?action=logout">Cerrar sesión ('.$_SESSION["nombre_usuario"].')</a></li>';
 		}
 		?>
-		<button id='cesta'onclick=cesta_ver()>CESTA</button>
 	</ul>
 </nav>
