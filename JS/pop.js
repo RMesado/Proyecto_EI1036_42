@@ -257,3 +257,33 @@ function validacionEmail(){
       return false;
     }
   }
+
+  function rellenarVisor(json){
+    json.forEach(objeto =>{
+      let div = document.createElement(div);
+      div.classList.add("item");
+      div.setAttribute("id",objeto.id);
+
+      let img=document.createElement("img");
+      img.setAttribute("src",objeto.imagen);
+      
+      let descrip = document.createElement(p);
+      descrip.createTextNode(objeto.descripcion);
+
+      let p = document.createElement(p);
+      p.createTextNode(objeto.name + " "+ objeto.precio);
+
+      let button = document.createElement("button");
+      var coso = objeto.id +","+objeto.name+","+objeto.imagen+","+objeto.precio
+      button.setAttribute("id",coso);
+      button.setAttribute("onclick",'cesta('+coso+');');
+      button.createTextNode("Comprar");
+      
+      div.appendChild(img);
+      div.appendChild(descrip);
+      div.appendChild(p);
+      div.appendChild(button);
+      document.querySelector(".visor").appendChild(div)
+
+    })
+  }

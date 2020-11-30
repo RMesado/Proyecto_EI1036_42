@@ -13,10 +13,10 @@
 <script>
 	let divCaja=document.getElementById("caro_movil");
    divCaja.onmousedown=function(){startDrag();}
-   fetch('datos.php')
+   fetch('includes/datos.php')
 .then(response => response.json())
 .then(json => rellenarVisor(json))
-.catch(err => alert("PETOOOOOOO PUTO"))
+.catch(err => console.log(err))
 
 
 </script>

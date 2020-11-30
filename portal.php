@@ -34,6 +34,7 @@ include(dirname(__FILE__)."/includes/realizarCompra.php");
 include(dirname(__FILE__)."/partials/ventanita.php");
 include(dirname(__FILE__)."/includes/phpToJs.php");
 include(dirname(__FILE__)."/partials/cestaV2.php");
+include(dirname(__FILE__)."/includes/visor.php");
 
 if (isset($_REQUEST['action'])) {
     $action = $_REQUEST["action"];
@@ -59,7 +60,8 @@ switch ($action) {
         $central = registrar_usuario("clientes_portal"); //tabla usuarios
         break;
     case "listar_productos":
-        $central = table2html("productos"); //tabla productos
+        $central = "/includes/visor.php";
+         //tabla productos
         break;
     case "registrar_producto":
         $central = "/partials/registro_producto.php"; //formulario producto
