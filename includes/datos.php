@@ -1,5 +1,6 @@
 <?php
 function datos(){
+    header('Content-type: application/json');
     global $pdo;
     $result = $pdo->prepare("SELECT * FROM productos");
     $result->execute();
