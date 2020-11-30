@@ -13,6 +13,12 @@
 <script>
 	let divCaja=document.getElementById("caro_movil");
    divCaja.onmousedown=function(){startDrag();}
+   fetch('datos.php')
+.then(response => response.json())
+.then(json => rellenarVisor(json))
+.catch(err => alert("PETOOOOOOO PUTO"))
+
+
 </script>
 </body>
 
