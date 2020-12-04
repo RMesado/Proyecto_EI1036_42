@@ -34,7 +34,7 @@ include(dirname(__FILE__)."/includes/realizarCompra.php");
 include(dirname(__FILE__)."/partials/ventanita.php");
 include(dirname(__FILE__)."/includes/phpToJs.php");
 include(dirname(__FILE__)."/partials/cestaV2.php");
-include(dirname(__FILE__)."/includes/visor.php");
+//include(dirname(__FILE__)."/includes/visor.php");
 
 if (isset($_REQUEST['action'])) {
     $action = $_REQUEST["action"];

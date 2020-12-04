@@ -191,6 +191,7 @@ function validacionEmail(){
       return false;
     }
   }
+  
 
   function formValidation() {
     let email = document.getElementById('email')
@@ -260,30 +261,30 @@ function validacionEmail(){
 
   function rellenarVisor(json){
     json.forEach(objeto =>{
-      let div = document.createElement(div);
+      let div = document.createElement("div");
       div.classList.add("item");
       div.setAttribute("id",objeto.id);
 
       let img=document.createElement("img");
       img.setAttribute("src",objeto.imagen);
       
-      let descrip = document.createElement(p);
-      descrip.createTextNode(objeto.descripcion);
+      let descrip = document.createElement("p");
+      descrip.innerHTML= objeto.descripcion;
 
-      let p = document.createElement(p);
-      p.createTextNode(objeto.name + " "+ objeto.precio);
+      let p = document.createElement("p");
+      p.innerHTML = objeto.name + " "+ objeto.precio;
 
       let button = document.createElement("button");
       var coso = objeto.id +","+objeto.name+","+objeto.imagen+","+objeto.precio
       button.setAttribute("id",coso);
-      button.setAttribute("onclick",'cesta('+coso+');');
-      button.createTextNode("Comprar");
+      button.addEventListener("onclick",function(){cesta(coso);},true);
+      button.innerHTML="Comprar";
       
       div.appendChild(img);
       div.appendChild(descrip);
       div.appendChild(p);
       div.appendChild(button);
-      document.querySelector(".visor").appendChild(div)
+      document.querySelector(".visor").appendChild(div);
 
-    })
+    });
   }
