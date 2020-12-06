@@ -260,35 +260,50 @@ function validacionEmail(){
   }
 
   function rellenarVisor(json){
-    json.forEach(objeto =>{
-      let div = document.createElement("div");
-      div.classList.add("item");
-      div.setAttribute("id",objeto.id);
+    if(json.length == 0){
+      alert("No hay productos en ese rango de precios")
+    }else{
+      const visor = document.querySelector(".visor");
+      while(visor.firstChild){
+        visor.removeChild(visor.lastChild);
+      }
+      json.forEach(objeto =>{
+        let div = document.createElement("div");
+        div.classList.add("item");
+        div.setAttribute("id",objeto.id);
 
-      let img=document.createElement("img");
-      img.setAttribute("src",objeto.imagen);
-      img.style.width = "400px";
-      img.style.height = "400px";
-      
-      let p = document.createElement("p");
-      p.innerHTML = objeto.name + ", "+ objeto.precio+"€";
-      p.style.fontWeight = "bold";
+        let img=document.createElement("img");
+        img.setAttribute("src",objeto.imagen);
+        img.style.width = "400px";
+        img.style.height = "400px";
+        
+        let p = document.createElement("p");
+        p.innerHTML = objeto.name + ", "+ objeto.precio+"€";
+        p.style.fontWeight = "bold";
 
-      let descrip = document.createElement("p");
-      descrip.innerHTML= objeto.descripcion;
-      descrip.style.fontWeight = "bold";
-      let button = document.createElement("button");
-      var coso = objeto.id +","+objeto.name+","+objeto.imagen+","+objeto.precio
-      button.setAttribute("id",coso);
-      button.addEventListener("click", function() {cesta(coso)});
-      //button.setAttribute("onclick",'cesta('+coso+')');
-      button.innerHTML="Comprar";
-      
-      div.appendChild(img);
-      div.appendChild(p);
-      div.appendChild(descrip);
-      div.appendChild(button);
-      document.querySelector(".visor").appendChild(div);
+        let descrip = document.createElement("p");
+        descrip.innerHTML= objeto.descripcion;
+        descrip.style.fontWeight = "bold";
+        let button = document.createElement("button");
+        var coso = objeto.id +","+objeto.name+","+objeto.imagen+","+objeto.precio
+        button.setAttribute("id",coso);
+        button.addEventListener("click", function() {cesta(coso)});
+        //button.setAttribute("onclick",'cesta('+coso+')');
+        button.innerHTML="Comprar";
+        
+        div.appendChild(img);
+        div.appendChild(p);
+        div.appendChild(descrip);
+        div.appendChild(button);
+        visor.appendChild(div);
 
-    });
+      });
+    }
+  }
+
+  function filtroPrecio(){
+    fetch('/includes/precios.php')
+    .then(response => response.json())
+    .then(json => rellenarVisor(json))
+    .catch(err => console.log(err))
   }

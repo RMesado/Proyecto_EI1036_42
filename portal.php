@@ -82,6 +82,9 @@ switch ($action) {
             $central = realizarCompra();
         } //cesta en $_SESSION["cesta"]
         break;
+    case "filtrar_precio":
+        $central = "/includes/visor.php";
+        break;
     case "logout":
         $_SESSION["usuario"] = null;
         $_SESSION["id_usuario"] = "";
