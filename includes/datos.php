@@ -3,6 +3,7 @@ include(dirname(__FILE__)."/ejecutarSQL.php");
 include(dirname(__FILE__)."/conector_BD.php");
 
 function datos(){
+    header('Content-type: application/json');
     global $pdo;
     header('Content-Type: application/json');
     $result = $pdo->prepare("SELECT * FROM productos");
