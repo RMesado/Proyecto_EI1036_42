@@ -267,13 +267,16 @@ function validacionEmail(){
 
       let img=document.createElement("img");
       img.setAttribute("src",objeto.imagen);
+      img.style.width = "400px";
+      img.style.height = "400px";
       
+      let p = document.createElement("p");
+      p.innerHTML = objeto.name + ", "+ objeto.precio+"€";
+      p.style.fontWeight = "bold";
+
       let descrip = document.createElement("p");
       descrip.innerHTML= objeto.descripcion;
-
-      let p = document.createElement("p");
-      p.innerHTML = objeto.name + " "+ objeto.precio;
-
+      descrip.style.fontWeight = "bold";
       let button = document.createElement("button");
       var coso = objeto.id +","+objeto.name+","+objeto.imagen+","+objeto.precio
       button.setAttribute("id",coso);
@@ -281,8 +284,8 @@ function validacionEmail(){
       button.innerHTML="Comprar";
       
       div.appendChild(img);
-      div.appendChild(descrip);
       div.appendChild(p);
+      div.appendChild(descrip);
       div.appendChild(button);
       document.querySelector(".visor").appendChild(div);
 

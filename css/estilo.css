@@ -197,14 +197,14 @@ input[type=text], textarea {
 
 }
 
-visor {
+.visor {
     background-color: lightblue;
-    width: 100px;
+    width: auto;
     overflow-x: scroll;
     display:flex;
     }
 
-item {
+.item {
     margin: 5px;
-    background-color: darkblue;
+    background-color: rgb(52, 144, 250);
     }
