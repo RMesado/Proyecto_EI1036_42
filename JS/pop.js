@@ -280,7 +280,8 @@ function validacionEmail(){
       let button = document.createElement("button");
       var coso = objeto.id +","+objeto.name+","+objeto.imagen+","+objeto.precio
       button.setAttribute("id",coso);
-      button.addEventListener("onclick",function(){cesta(coso);},true);
+      button.addEventListener("click", function() {cesta(coso)});
+      //button.setAttribute("onclick",'cesta('+coso+')');
       button.innerHTML="Comprar";
       
       div.appendChild(img);
