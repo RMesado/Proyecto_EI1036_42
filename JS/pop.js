@@ -302,7 +302,9 @@ function validacionEmail(){
   }
 
   function filtroPrecio(){
-    fetch('/includes/precios.php')
+    var min = document.getElementById("min").value;
+    var max = document.getElementById("max").value;
+    fetch('/includes/precios.php?min='+min+'&max='+max)
     .then(response => response.json())
     .then(json => rellenarVisor(json))
     .catch(err => console.log(err))

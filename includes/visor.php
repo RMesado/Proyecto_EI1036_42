@@ -1,15 +1,15 @@
 <div class="visor"></div>
 <div>
-    <form class="form_usuario" action="?action=filtrar_precio" onsubmit="filtroPrecio()" method="POST">
+    <form class="form_usuario" action="javascript:null" onsubmit="filtroPrecio()" method="POST">
 		<fieldset>
             <legend>Filtrar rango de precios</legend>
             <label for="min">Mínimo</label>
 			<br/>
-			<input type="text" name="min" class="item_requerid" size="20" maxlength="25"/>
+			<input type="text" id="min" class="item_requerid" size="20" maxlength="25"/>
             <br/>
             <label for="max">Máximo</label>
 			<br/>
-			<input type="text" name="max"  class="item_requerid" size="20" maxlength="25"/>
+			<input type="text" id="max"  class="item_requerid" size="20" maxlength="25"/>
 			<br/>
 		</fieldset>
 		<p>
