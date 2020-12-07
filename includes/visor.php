@@ -1,5 +1,12 @@
 <div class="visor"></div>
 <div>
+<fieldset>
+<legend>Buscar producto por nombre</legend>
+<label for="productos">Nombre</label>
+<input type="text" list="lista" name="productos" onselect = "buscador(this.value)">
+<datalist id ="lista" >
+</datalist>
+</fieldset>
     <form class="form_usuario" action="javascript:null" onsubmit="filtroPrecio()" method="POST">
 		<fieldset>
             <legend>Filtrar rango de precios</legend>

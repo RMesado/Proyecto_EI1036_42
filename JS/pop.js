@@ -1,3 +1,5 @@
+var productid = {};
+
 
 function popup(){
     document.getElementById("ventanita").style.visibility="visible";
@@ -267,7 +269,9 @@ function validacionEmail(){
       while(visor.firstChild){
         visor.removeChild(visor.lastChild);
       }
+      productid={};
       json.forEach(objeto =>{
+
         let div = document.createElement("div");
         div.classList.add("item");
         div.setAttribute("id",objeto.id);
@@ -280,6 +284,8 @@ function validacionEmail(){
         let p = document.createElement("p");
         p.innerHTML = objeto.name + ", "+ objeto.precio+"€";
         p.style.fontWeight = "bold";
+
+
 
         let descrip = document.createElement("p");
         descrip.innerHTML= objeto.descripcion;
@@ -296,8 +302,13 @@ function validacionEmail(){
         div.appendChild(descrip);
         div.appendChild(button);
         visor.appendChild(div);
+        var opt=document.createElement("option");
+        opt.value=objeto.name;
+        productid[objeto.name] = objeto.id;
+        document.getElementById("lista").appendChild(opt);
 
       });
+      document.getElementById("busqueda").setAttribute("list","lista");
     }
   }
 
@@ -308,4 +319,9 @@ function validacionEmail(){
     .then(response => response.json())
     .then(json => rellenarVisor(json))
     .catch(err => console.log(err))
+  }
+
+  function buscador(proc){
+    document.getElementById(productid[proc]).scrollIntoView()
+
   }
