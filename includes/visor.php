@@ -3,9 +3,11 @@
 <fieldset>
 <legend>Buscar producto por nombre</legend>
 <label for="productos">Nombre</label>
-<input type="text" list="lista" name="productos" onselect = "buscador(this.value)">
+<input type="text" list="lista" name="productos" onchange = "buscador(this.value)">
 <datalist id ="lista" >
 </datalist>
+</div>
+<div>
 </fieldset>
     <form class="form_usuario" action="javascript:null" onsubmit="filtroPrecio()" method="POST">
 		<fieldset>

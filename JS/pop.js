@@ -266,8 +266,10 @@ function validacionEmail(){
       alert("No hay productos en ese rango de precios")
     }else{
       const visor = document.querySelector(".visor");
+      const optes=document.getElementById("lista");
       while(visor.firstChild){
         visor.removeChild(visor.lastChild);
+        optes.removeChild(optes.lastChild);
       }
       productid={};
       json.forEach(objeto =>{

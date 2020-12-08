@@ -79,7 +79,7 @@ switch ($action) {
         if ($_SESSION["id_usuario"]=="") {
             $central = "/partials/login.php";
         } else {
-            $central = realizarCompra();
+            $central = realizarCompra("compras");
         } //cesta en $_SESSION["cesta"]
         break;
     case "filtrar_precio":
