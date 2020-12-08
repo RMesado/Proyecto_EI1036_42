@@ -324,6 +324,6 @@ function validacionEmail(){
   }
 
   function buscador(proc){
-    document.getElementById(productid[proc]).scrollIntoView()
+    document.getElementById(productid[proc]).scrollIntoView({behavior: "smooth"})
 
   }
