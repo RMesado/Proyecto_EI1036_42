@@ -78,9 +78,7 @@
       <div class="center">Cesta</div>
     </ons-toolbar>
    
-    <ons-list>
-       <ons-list-item><span class="miItem">BLUE</span> <ons-button class="elimina">X</ons-button></ons-list-item>
-      <ons-list-item><span class="miItem">RED</span> <ons-button class="elimina">X</ons-button></ons-list-item>
+    <ons-list id="tabla">
     </ons-list>
 
     <ons-button modifier="large">Comprar</ons-button>
@@ -89,7 +87,7 @@
 </template>
   
 <script>
-  
+  var productid={};
   /* Funciones para mover el carrusel */
   var prev = function() {
     var carousel = document.getElementById('carousel');
@@ -116,9 +114,10 @@ function rellenarVisorMobile(json){
       //   mobile.removeChild(mobile.lastChild);
       //   optes.removeChild(optes.lastChild);
       // }
-      var productid={};
+      productid={};
+      console.log(json);
       json.forEach(objeto =>{
-
+        console.log(objeto);
         let div = document.createElement("div");
         div.classList.add("item");
         div.setAttribute("id",objeto.id);
@@ -142,7 +141,7 @@ function rellenarVisorMobile(json){
         button.setAttribute("id",coso);
         button.addEventListener("click", function() {cesta(coso)});
         //button.setAttribute("onclick",'cesta('+coso+')');
-        button.innerHTML="Comprar";
+        button.innerHTML="Añadir a la cesta";
         
         div.appendChild(img);
         div.appendChild(p);
@@ -151,10 +150,10 @@ function rellenarVisorMobile(json){
         var item = document.createElement("ons-carousel-item");
         item.appendChild(div);
         mobile.appendChild(item);
-        var opt=document.createElement("ons-list-item");
-        opt.value=objeto.name;
-        productid[objeto.name] = objeto.id;
-        optes.appendChild(opt);
+       // var opt=document.createElement("ons-list-item");
+        //opt.value=objeto.name;
+        //productid[objeto.name] = objeto.id;
+        //optes.appendChild(opt);
 
       });
       //document.getElementById("busqueda").setAttribute("list","lista");
@@ -162,10 +161,82 @@ function rellenarVisorMobile(json){
     }
   }
   
-
   function buscador(proc){
     document.getElementById(productid[proc]).scrollIntoView({behavior: "smooth"})
   }
+
+  // Cosas de cesta
+  
+(function(){
+    let lista = JSON.parse(localStorage.getItem('cesta'))
+    if(lista && lista.length>0)
+      lista.forEach(tarea => anyadir(tarea))
+})()
+
+
+function anyadir2(tarea){
+  
+  let nodo2=document.createElement("ons-list-item")
+  nodo2.setAttribute('modifier',"longdivider")
+  
+  let span = document.createElement('span')
+  span.classList.add('data-tarea') // añadimos una nueva clase al atributo 'class'
+
+  if (tarea){ 
+    var producto=tarea.split(',')
+    for( var i=0 ; i<producto.length;i++){
+      let celdaFoto=document.createElement('div');
+      celdaFoto.classList.add("left");
+      let celda=document.createElement('div');
+      celda.classList.add("center");
+      
+      if (i==0){
+        celda.classList.add("id");
+        celda.setAttribute('value',producto[i])
+      }
+      if (i==2){
+        var variable=document.createElement("IMG")
+        variable.setAttribute('src',producto[i])
+        variable.classList.add("list-item__title")
+        
+    
+      }else{
+        var variable=document.createTextNode(producto[i])
+      }
+      celdaFoto.appendChild(variable)     
+      nodo2.appendChild(celdaFoto)
+      nodo2.appendChild(celda)
+  }
+     span.textContent = tarea
+  }else /*si el contenido es vacio return */
+     span.textContent = document.getElementById('tarea').value
+
+  //nodo2.appendChild(span)
+  let boton = document.createElement('ons-button')
+  boton.textContent = 'Borrar'
+  let celda=document.createElement('div')
+  celda.appendChild(boton)
+  nodo2.appendChild(celda)
+  boton.onclick = eliminar2
+  boton.classList.add('boton')
+
+  document.getElementById('tabla').appendChild(nodo2)
+}
+function eliminar2(){
+  this.parentNode.parentNode.remove()
+}
+
+function guardar(){
+  let lista = document.querySelectorAll('.data-tarea')
+  //hay que conseguir que no guarde el contenido del boton
+  lista = Array.from(lista).map(n => n.textContent)
+  localStorage.setItem('cesta', JSON.stringify(lista))
+}
+
+function cesta(id){
+  anyadir2(id)
+
+}
 </script>
   
 </body>
