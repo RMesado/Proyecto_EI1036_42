@@ -310,9 +310,10 @@ function validacionEmail(){
         document.getElementById("lista").appendChild(opt);
 
       });
-      document.getElementById("busqueda").setAttribute("list","lista");
+      //document.getElementById("busqueda").setAttribute("list","lista");
     }
   }
+
 
   function filtroPrecio(){
     var min = document.getElementById("min").value;

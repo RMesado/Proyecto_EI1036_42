@@ -208,3 +208,6 @@ input[type=text], textarea {
     margin: 5px;
     background-color: rgb(52, 144, 250);
     }
+
+.miItem {margin:10px;}
+.elimina {background-color:red;}
