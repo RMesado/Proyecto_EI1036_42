@@ -66,7 +66,7 @@
   <datalist id ="lista" >
   </datalist>
   </p>
-  <ons-carousel fullscreen swipeable auto-scroll overscrollable id="carousel">
+  <ons-carousel centered swipeable auto-scroll overscrollable id="carousel">
     <!-- inicialmente estará vacío -->
   </ons-carousel>
   </ons-page>
