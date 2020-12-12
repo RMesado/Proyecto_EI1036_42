@@ -60,12 +60,12 @@
       </ons-toolbar-button>
     </div>
   </ons-toolbar>
-  <!-- <p>
-  <ons-input list="lista" onchange = "buscador(this.value)" modifier="underbar" placeholder="Nombre de producto" float></ons-input>
-  <ons-list id="lista">
-  Mirar este enlace: https://community.onsen.io/topic/1177/ons-input-and-datalist/5
-  </ons-list>
-  </p> -->
+  <p>
+  <!-- <ons-search-input id="input" list="lista" onchange = "buscador(this.value)" modifier="underbar" placeholder="Nombre de producto" float></ons-search-input> -->
+  <input type="search" list="lista" onchange = "buscador(this.value)" class="search-input search-input--material search-input--underbar" placeholder="Nombre de producto">
+  <datalist id ="lista" >
+  </datalist>
+  </p>
   <ons-carousel fullscreen swipeable auto-scroll overscrollable id="carousel">
     <!-- inicialmente estará vacío -->
   </ons-carousel>

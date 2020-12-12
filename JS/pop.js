@@ -1,4 +1,6 @@
 var productid = {};
+let nombreProd= [];
+let shownItems =[];
 
 
 function popup(){
@@ -332,6 +334,9 @@ function validacionEmail(){
   // Funciones versión móbil
 
   /* Funciones para mover el carrusel */
+  var input = document.getElementById('input');
+  console.log(input)
+
   var prev = function() {
     var carousel = document.getElementById('carousel');
     carousel.prev();
@@ -353,9 +358,9 @@ function rellenarVisorMobile(json){
     }else{
       const mobile = document.getElementById("carousel");
       const optes=document.getElementById("lista");
-      // while(mobile.firstChild){
-      //   mobile.removeChild(mobile.lastChild);
-      //   optes.removeChild(optes.lastChild);
+      //while(mobile.firstChild){
+      // mobile.removeChild(mobile.lastChild);
+      // optes.removeChild(optes.lastChild);
       // }
       productid={};
       json.forEach(objeto =>{
@@ -365,14 +370,12 @@ function rellenarVisorMobile(json){
 
         let img=document.createElement("img");
         img.setAttribute("src",objeto.imagen);
-        img.style.width = "400px";
-        img.style.height = "400px";
+        img.style.width = "250px";
+        img.style.height = "250px";
         
         let p = document.createElement("p");
         p.innerHTML = objeto.name + ", "+ objeto.precio+"€";
         p.style.fontWeight = "bold";
-
-
 
         let descrip = document.createElement("p");
         descrip.innerHTML= objeto.descripcion;
@@ -391,10 +394,11 @@ function rellenarVisorMobile(json){
         var item = document.createElement("ons-carousel-item");
         item.appendChild(div);
         mobile.appendChild(item);
-       // var opt=document.createElement("ons-list-item");
-        //opt.value=objeto.name;
-        //productid[objeto.name] = objeto.id;
-        //optes.appendChild(opt);
+        nombreProd.push(objeto.name);
+        productid[objeto.name] = objeto.id;
+        var opt=document.createElement("option");
+        opt.value=objeto.name;
+        document.getElementById("lista").appendChild(opt);
 
       });
       //document.getElementById("busqueda").setAttribute("list","lista");
@@ -402,11 +406,8 @@ function rellenarVisorMobile(json){
     }
   }
   
-  function buscador(proc){
-    document.getElementById(productid[proc]).scrollIntoView({behavior: "smooth"})
-  }
 
-  // Cosas de cesta
+  // Cosas de cesta-----------------------------------
   
 (function(){
     let lista = JSON.parse(localStorage.getItem('cesta'))
@@ -424,9 +425,7 @@ function anyadir2Mobil(tarea){
   span.classList.add('data-tarea') // añadimos una nueva clase al atributo 'class'
 
   if (tarea){ 
-    console.log(tarea)
     var producto=tarea.split(';')
-    console.log(producto)
     let celdaFoto=document.createElement('div');
     celdaFoto.classList.add("left");
 
