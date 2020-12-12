@@ -328,3 +328,155 @@ function validacionEmail(){
     document.getElementById(productid[proc]).scrollIntoView({behavior: "smooth"})
 
   }
+
+  // Funciones versión móbil
+
+  /* Funciones para mover el carrusel */
+  var prev = function() {
+    var carousel = document.getElementById('carousel');
+    carousel.prev();
+  };
+
+  var next = function() {
+    var carousel = document.getElementById('carousel');
+    carousel.next();
+  };
+
+  fetch('/includes/datos.php')
+.then(response => response.json())
+.then(json => rellenarVisorMobile(json))
+.catch(err => console.log(err))
+
+function rellenarVisorMobile(json){
+    if(json.length == 0){
+      alert("No hay productos en ese rango de precios")
+    }else{
+      const mobile = document.getElementById("carousel");
+      const optes=document.getElementById("lista");
+      // while(mobile.firstChild){
+      //   mobile.removeChild(mobile.lastChild);
+      //   optes.removeChild(optes.lastChild);
+      // }
+      productid={};
+      json.forEach(objeto =>{
+        let div = document.createElement("div");
+        div.classList.add("item");
+        div.setAttribute("id",objeto.id);
+
+        let img=document.createElement("img");
+        img.setAttribute("src",objeto.imagen);
+        img.style.width = "400px";
+        img.style.height = "400px";
+        
+        let p = document.createElement("p");
+        p.innerHTML = objeto.name + ", "+ objeto.precio+"€";
+        p.style.fontWeight = "bold";
+
+
+
+        let descrip = document.createElement("p");
+        descrip.innerHTML= objeto.descripcion;
+        descrip.style.fontWeight = "bold";
+        let button = document.createElement("button");
+        var coso = objeto.id +";"+objeto.name+";"+objeto.imagen+";"+objeto.descripcion+";"+objeto.precio
+        button.setAttribute("id",coso);
+        button.addEventListener("click", function() {cestaMobil(coso)});
+        //button.setAttribute("onclick",'cesta('+coso+')');
+        button.innerHTML="Añadir a la cesta";
+        
+        div.appendChild(img);
+        div.appendChild(p);
+        div.appendChild(descrip);
+        div.appendChild(button);
+        var item = document.createElement("ons-carousel-item");
+        item.appendChild(div);
+        mobile.appendChild(item);
+       // var opt=document.createElement("ons-list-item");
+        //opt.value=objeto.name;
+        //productid[objeto.name] = objeto.id;
+        //optes.appendChild(opt);
+
+      });
+      //document.getElementById("busqueda").setAttribute("list","lista");
+      //mobile.refresh();
+    }
+  }
+  
+  function buscador(proc){
+    document.getElementById(productid[proc]).scrollIntoView({behavior: "smooth"})
+  }
+
+  // Cosas de cesta
+  
+(function(){
+    let lista = JSON.parse(localStorage.getItem('cesta'))
+    if(lista && lista.length>0)
+      lista.forEach(tarea => anyadir(tarea))
+})()
+
+
+function anyadir2Mobil(tarea){
+  
+  let nodo2=document.createElement("ons-list-item")
+  nodo2.setAttribute('modifier',"longdivider")
+  
+  let span = document.createElement('span')
+  span.classList.add('data-tarea') // añadimos una nueva clase al atributo 'class'
+
+  if (tarea){ 
+    console.log(tarea)
+    var producto=tarea.split(';')
+    console.log(producto)
+    let celdaFoto=document.createElement('div');
+    celdaFoto.classList.add("left");
+
+    let celda=document.createElement('div');
+    celda.classList.add("center");
+    
+    // ID producto
+      nodo2.classList.add("id");
+      nodo2.setAttribute('value',producto[0])
+
+    // IMG Producto
+      var variable=document.createElement("IMG")
+      variable.setAttribute('src',producto[2])
+      variable.classList.add("list-item__thumbnail")
+      celdaFoto.appendChild(variable)
+  
+    //Nombre Producto + precio
+      var variable=document.createElement("span")
+      variable.classList.add("list-item__title")
+      variable.textContent = producto[1]+', '+producto[4]+'€';
+      celda.appendChild(variable)
+    
+    //Descripcion producto
+      var variable=document.createElement("span")
+      variable.classList.add("list-item__subtitle")
+      variable.textContent = producto[3]
+      celda.appendChild(variable)
+    
+  
+      nodo2.appendChild(celdaFoto);
+      nodo2.appendChild(celda);
+    
+  
+  }else /*si el contenido es vacio return */
+     span.textContent = document.getElementById('tarea').value
+
+  //nodo2.appendChild(span)
+  let boton = document.createElement('ons-button')
+  boton.textContent = 'Borrar'
+  let celda=document.createElement('div')
+  celda.classList.add("right")
+  celda.appendChild(boton)
+  nodo2.appendChild(celda)
+  boton.onclick = eliminar2
+  boton.classList.add('boton')
+
+  document.getElementById('tabla').appendChild(nodo2)
+}
+
+function cestaMobil(id){
+  anyadir2Mobil(id)
+
+}
