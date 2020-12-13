@@ -479,3 +479,14 @@ function cestaMobil(id){
   anyadir2Mobil(id)
 
 }
+function rellenarMobil(){
+  var ids=document.getElementsByClassName("id")
+  var listas=[]
+  for(i=0;i<ids.length;i++){
+    var valor=ids[i].getAttribute('value')
+    listas=listas.concat(valor)
+  }
+  
+  document.getElementById('nover').setAttribute('value',listas)
+
+}

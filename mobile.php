@@ -77,13 +77,14 @@
     <ons-toolbar>
       <div class="center">Cesta</div>
     </ons-toolbar>
-   
+    <form class="form_compra" action="?action=comprar" method="POST">
     <ons-list id="tabla">
     </ons-list>
-
-    <ons-button modifier="large">Comprar</ons-button>
+    <input type="text" id="nover" hidden name="productos" >
+    <input type="submit" value="Comprar" onclick="rellenarMobil()" >
+    <!--<ons-button modifier="large" onclick="rellenarMobil()" value="Enviar" type="submit">Comprar</ons-button> -->
   </ons-page>
-
+  </form>
 </template>
   
 <script src="/js/pop.js">
