@@ -487,6 +487,9 @@ function rellenarMobil(){
     listas=listas.concat(valor)
   }
   
-  document.getElementById('nover').setAttribute('value',listas)
 
+  fetch('/includes/compras.php?productos='+listas)
+  .then(response => response.json())
+  .then(json => rellenarVisor(json))
+  .catch(err => console.log(err))
 }
