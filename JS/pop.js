@@ -334,8 +334,6 @@ function validacionEmail(){
   // Funciones versión móbil
 
   /* Funciones para mover el carrusel */
-  var input = document.getElementById('input');
-  console.log(input)
 
   var prev = function() {
     var carousel = document.getElementById('carousel');
@@ -481,15 +479,25 @@ function cestaMobil(id){
 }
 function rellenarMobil(){
   var ids=document.getElementsByClassName("id")
-  var listas=[]
+  var listas= ''
   for(i=0;i<ids.length;i++){
     var valor=ids[i].getAttribute('value')
-    listas=listas.concat(valor)
+    if (i == ids.length-1){
+      listas = listas+valor;
+    }else{
+    listas=listas+valor+','
+    }
   }
-  
+  console.log(listas)
 
   fetch('/includes/compras.php?productos='+listas)
   .then(response => response.json())
-  .then(json => rellenarVisor(json))
+  .then(json => {if (json.resultado == "KO"){
+    alert("La compra no se ha realizado")
+    //header("Location: http://localhost:3000/mobile.php");
+  }else{
+    alert("La compra se ha realizado con éxito");
+    //header("Location: http://localhost:3000/mobile.php");
+  }})
   .catch(err => console.log(err))
 }
