@@ -81,7 +81,7 @@
     <ons-list id="tabla">
     </ons-list>
     <input type="text" id="nover" hidden name="productos" >
-    <input type="submit" value="Comprar" onclick="rellenarMobil()" class="button button--large" >
+    <input type="submit" value="Comprar" onclick="rellenarMobil(event)" class="button button--large" >
     <!--<ons-button modifier="large" onclick="rellenarMobil()" value="Enviar" type="submit">Comprar</ons-button>
     <ons-button modifier="large" onclick="rellenarMobil()" value="Enviar" type="submit" class="button button--large">Comprar</ons-button>-->
   </ons-page>

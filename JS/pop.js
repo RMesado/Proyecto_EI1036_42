@@ -477,7 +477,8 @@ function cestaMobil(id){
   anyadir2Mobil(id)
 
 }
-function rellenarMobil(){
+function rellenarMobil(event){
+  event.preventDefault();
   var ids=document.getElementsByClassName("id")
   var listas= ''
   for(i=0;i<ids.length;i++){
@@ -492,12 +493,15 @@ function rellenarMobil(){
 
   fetch('/includes/compras.php?productos='+listas)
   .then(response => response.json())
-  .then(json => {if (json.resultado == "KO"){
-    alert("La compra no se ha realizado")
-    //header("Location: http://localhost:3000/mobile.php");
+  .then(json => {
+    if (json.resultado == "KO"){
+      ons.notification.alert({message: 'La compra no se ha podido realizar', 
+      title: 'ERROR:', callback: function(){window.location.reload()}});
+
   }else{
-    alert("La compra se ha realizado con éxito");
-    //header("Location: http://localhost:3000/mobile.php");
+    ons.notification.alert({message: 'La compra se ha realizado con éxito', 
+    title: 'Enhorabuena:', callback: function(){window.location.reload()}});
+
   }})
   .catch(err => console.log(err))
 }
